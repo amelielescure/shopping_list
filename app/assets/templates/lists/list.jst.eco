@@ -1,0 +1,5 @@
+<td><%= name %></td>
+
+<td><a href="#/lists/<%= id %>">Voir</td>
+<td><a href="#/lists/<%= id %>/edit">Editer</td>
+<td><a href="#/lists/<%= id %>/destroy" class="destroy">Supprimer</a></td>

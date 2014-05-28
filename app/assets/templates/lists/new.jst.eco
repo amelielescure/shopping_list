@@ -1,0 +1,15 @@
+<h1>Nouvelle liste</h1>
+
+<form id="new-list" name="list">
+  <div class="field">
+    <label for="name"> Nom:</label>
+    <input type="text" name="name" id="name" >
+  </div>
+
+  <div class="actions">
+    <input type="submit" value="Créer une liste" />
+  </div>
+
+</form>
+
+<a href="#/lists">Retour</a>

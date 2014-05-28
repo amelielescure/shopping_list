@@ -1,0 +1,6 @@
+%p
+  = t(:welcome, scope: [:devise, :mailer, :confirmation_instructions])
+  = @email
+  \!
+%p= t(:you_can_confirm_your_account_through_the_link_below, scope: [:devise, :mailer, :confirmation_instructions])
+%p= link_to t(:confirm_my_account, scope: [:devise, :mailer, :confirmation_instructions]), confirmation_url(@resource, confirmation_token: @token)

@@ -1,0 +1,51 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+
+nav.navbar
+  .navbar-brand
+    :padding 3px !important
+    :margin-right 50px
+    span
+      :color #69a300
+      :font-size 20px
+
+#page-container
+  :padding-top 60px
+  #alert-message
+    :margin auto
+    :float none
+
+#devise
+  :margin-top 40px
+  #sign
+    :margin auto
+    :float none
+    :background-color #222
+    :color white
+    :-webkit-border-radius 4px
+    :-moz-border-radius 4px
+    :border-radius 4px
+    :padding 12px 35px 35px 35px !important    
+    h2
+      :text-align center
+      :margin-bottom 25px
+    a
+      :color #69a300
+      &:hover 
+        :color white     
+        :text-decoration none
+        :backround-color transparent
+
+

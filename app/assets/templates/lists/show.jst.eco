@@ -1,0 +1,6 @@
+<p>
+  <b>Nom:</b>
+  <%= name %>
+</p>
+
+<a href="#/lists">Retour</a>

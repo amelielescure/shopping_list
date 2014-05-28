@@ -1,0 +1,15 @@
+<section class="container products"> 
+    <% for product in @products: %>
+      <div class="product col-xs-5 col-md-3">
+        <div class="picture">
+          <img src="/assets/<%= product.get('picture') %>"/>
+        </div>
+        <div class="footer">    
+          <div class="infos">      
+            <h3 class="name col-xs-12 col-md-8"><%= product.get("name") %></h3>
+            <span class="price col-xs-6 col-md-4"><%= product.get("price") %> €</span>
+          </div>
+        </div>
+      </div>      
+    <% end %>
+</section>

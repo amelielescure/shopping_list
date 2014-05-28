@@ -1,0 +1,18 @@
+<h1>Liste <small><%= @lists.length %></small></h1>
+<a href="#lists/new" class="button">Créer une liste</a>
+<% if @lists.length: %>
+  <ul class="c-list">
+    <% for list in @lists: %>
+      <li class="list-item widget">
+        <div class="c-name">
+          <h4> <%= list.get("name") %> </h4>
+        </div>
+        <div class="clearfix">
+          <a href="#lists/<%= list.id %>/edit" class="button edit-company">Edit</a>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else: %>
+  <h1>Vous ne possedez pas de liste</h1>
+<% end %>

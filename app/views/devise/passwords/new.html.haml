@@ -1,0 +1,13 @@
+#password
+  %h2= t(:forgot_your_password, scope: [:devise, :common])
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post,  :class => "form-horizontal"}) do |f|
+    = devise_error_messages!
+    .form-group
+      = f.label :email, :class => "col-sm-3 control-label"
+      .col-sm-7
+        = f.email_field :email, autofocus: true, :class => "form-control"
+    .form-group
+      .col-sm-offset-3.col-sm-9
+        = f.submit t(:send_me_reset_password_instructions, scope: [:devise, :passwords, :new]), :class => "btn btn-default"
+
+  = render "devise/shared/links"

@@ -1,0 +1,18 @@
+%h2= t(:sign_up, scope: [:devise, :common])
+= form_for(resource, as: resource_name, :html => {:class => "form-horizontal"}, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  .form-group
+    = f.label :email, :class => "col-sm-3 control-label"
+    .col-sm-7
+      = f.email_field :email, autofocus: true, :class => "form-control"
+  .form-group
+    = f.label :password, :class => "col-sm-3 control-label"
+    .col-sm-7
+      = f.password_field :password, autocomplete: "off", :class => "form-control"
+  .form-group
+    = f.label :password_confirmation, :class => "col-sm-3 control-label"
+    .col-sm-7
+      = f.password_field :password_confirmation, autocomplete: "off", :class => "form-control"
+  .form-group
+    .col-sm-offset-3.col-sm-9
+      = f.submit t(:sign_up, scope: [:devise, :common]), :class => "btn btn-default"

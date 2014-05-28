@@ -1,0 +1,22 @@
+#login
+  %h2= t(:sign_in, scope: [:devise, :common])
+  = form_for(resource, as: resource_name, :html => {:class => "form-horizontal"}, url: session_path(resource_name)) do |f|
+    .form-group
+      = f.label :email, :class => "col-sm-3 control-label"
+      .col-sm-7
+        = f.email_field :email, autofocus: true, :class => "form-control"
+    .form-group
+      = f.label :password, :class => "col-sm-3 control-label"
+      .col-sm-7
+        = f.password_field :password, autocomplete: "off", :class => "form-control"
+    - if devise_mapping.rememberable?
+      .form-group
+        .col-sm-offset-3.col-sm-9
+          .checkbox
+            = f.check_box :remember_me
+            = f.label :remember_me, t(:remember_me, scope: [:devise, :common])
+    .form-group
+      .col-sm-offset-3.col-sm-9
+        = f.submit t(:sign_in, scope: [:devise, :common]), :class => "btn btn-default"
+
+  = render "devise/shared/links"
