@@ -9,6 +9,22 @@
             <h3 class="name col-xs-12 col-md-8"><%= product.get("name") %></h3>
             <span class="price col-xs-6 col-md-4"><%= product.get("price") %> €</span>
           </div>
+          <div class="add-list">
+            <div class="row">
+              <div class="form-group">
+                <div class="col-sm-7">
+                  <select class="form-control">
+                    <% for list in @lists: %>
+                      <option><%= list.get("name") %></option>
+                    <% end %>
+                  </select>
+                </div>
+                <div class="col-sm-5">
+                  <input type="button" id="add-product" value="Add"/>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>      
     <% end %>

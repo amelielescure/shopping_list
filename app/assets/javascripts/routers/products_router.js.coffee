@@ -6,12 +6,15 @@ class ShoppingList.Routers.Products extends Backbone.Router
 
   initialize: (options) ->
     @products = new ShoppingList.Collections.Products()
+    @lists = new ShoppingList.Collections.Lists()
     @products.fetch()
+    @lists.fetch()
 
   index: ->
     @productsIndexView = new ShoppingList.Views.ProductsIndex
       el: $(".content"),
       collection: @products,
-      router: @
+      products: @products,
+      lists: @lists
 
     @productsIndexView.render()
