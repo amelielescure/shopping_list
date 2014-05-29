@@ -15,10 +15,8 @@ class ShoppingList.Views.ListsNew extends Backbone.View
   save: (e) ->
     e.preventDefault()
     e.stopPropagation()
-    attributes =
-      name: @$('#name').val()
-    @collection.create attributes,
-      success: (post) =>
+    name = $('#name').val()
+    model = new ShoppingList.Models.List({name: name})
+    @collection.create model,
+      success: (list) =>
         Backbone.history.navigate('#lists', true)
-      error: ->
-        alert "There were errors!"

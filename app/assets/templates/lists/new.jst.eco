@@ -1,13 +1,17 @@
-<h1>Nouvelle liste</h1>
+<h1>Création d'une nouvelle liste de course</h1>
 
-<form id="new-list" name="list">
-  <div class="field">
-    <label for="name"> Nom:</label>
-    <input type="text" name="name" id="name" >
+<form id="new-list" name="list" class="form-horizontal">
+  <div class="form-group">
+    <label for="name" class="col-sm-1 control-label"> Nom:</label>
+   	<div class="col-sm-4">
+    	<input type="text" name="name" id="name" class="form-control" >
+	</div>
   </div>
 
-  <div class="actions">
-    <input type="submit" value="Créer une liste" />
+  <div class="form-group">
+  	<div class="col-sm-offset-1 col-sm-11">
+    	<input type="submit" value="Valider" class="btn btn-success"/>
+    </div>
   </div>
 
 </form>

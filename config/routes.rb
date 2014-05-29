@@ -1,6 +1,6 @@
 ShoppingList::Application.routes.draw do
+  resources :product_lists
   resources :lists
-
   resources :products
 
   root to: "main#index"

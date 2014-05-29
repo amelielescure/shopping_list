@@ -3,7 +3,7 @@ class ListsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with @list = List.all
+    respond_with @list = List.where(:user_id => current_user.id.to_i)
   end
 
   def show
