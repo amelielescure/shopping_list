@@ -26,7 +26,7 @@ class ListsController < ApplicationController
   end
 
   def update
-    respond_with @list = List.update(params[:id], params[:list])
+    respond_with @list = List.update(params[:id], list_params)
   end
 
   def destroy
@@ -41,6 +41,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:name)
+      params.require(:list).permit(:name, :nb_product)
     end
 end

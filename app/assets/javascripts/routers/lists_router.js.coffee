@@ -7,19 +7,21 @@ class ShoppingList.Routers.Lists extends Backbone.Router
     "lists/:id/edit"    : "edit"
 
   initialize: (options) ->
+    @products = new ShoppingList.Collections.Products()
     @lists = new ShoppingList.Collections.Lists()
-    @product_list = new ShoppingList.Collections.ProductLists()
+    @product_lists = new ShoppingList.Collections.ProductLists()
     @lists.fetch()
-    @product_list.fetch()
 
   index: ->
-    @listsIndexView = new ShoppingList.Views.ListsIndex
-      el: $(".content"),
-      collection: @lists,
-      product_list: @product_list,
-      router: @
+    self = @
+    @lists.fetch 
+      success: (lists, response) ->
+        self.listsIndexView = new ShoppingList.Views.ListsIndex
+          el: $(".content"),
+          collection: lists,
+          router: self
 
-    @listsIndexView.render()
+        self.listsIndexView.render()
 
   newList: ->
     @listsNewView = new ShoppingList.Views.ListsNew
@@ -30,19 +32,19 @@ class ShoppingList.Routers.Lists extends Backbone.Router
     @listsNewView.render()
 
   show: (id) ->
-    list = @lists.get(id)
-    @listsShowView = new ShoppingList.Views.ListsShow
-      el: $(".content"),
-      model: list,
-      router: @
+    self = @
+    @lists.fetch 
+      success: (lists, response) ->
+        list = lists.get(id)
+        self.product_lists.fetch
+          success: (product_lists, response) ->
+            self.products.fetch
+              success: (products, response) ->
+                self.listsShowView = new ShoppingList.Views.ListsShow
+                  el: $(".content"),
+                  model: list,
+                  products: products,
+                  product_lists: product_lists,
+                  router: self
 
-    @listsShowView.render()
-
-  edit: (id) ->
-    list = @lists.get(id)
-    @listsEditView = new ShoppingList.Views.ListsEdit
-      el: $(".content"),
-      model: list,
-      router: @
-
-    @listsEditView.render()
+                self.listsShowView.render()

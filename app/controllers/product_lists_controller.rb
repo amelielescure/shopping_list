@@ -17,7 +17,7 @@ class ProductListsController < ApplicationController
   end
 
   def update
-    respond_with @product_list = ProductList.update(params[:id], params[:product_list])
+    respond_with @product_list = ProductList.update(params[:id], product_list_params)
   end
 
   def destroy

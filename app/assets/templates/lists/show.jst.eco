@@ -1,6 +1,29 @@
-<p>
-  <b>Nom:</b>
-  <%= name %>
-</p>
+<h2>
+  <b>Liste de course:</b>
+  <%= @list.get("name") %>
+</h2>
+
+
+<section class="container products"> 
+	<% for product in @products: %>
+		<div class="product col-xs-5 col-md-3">
+	    <div class="picture">
+	      <img src="/assets/<%= product.picture %>"/>
+	    </div>
+	    <div class="footer">    
+	      <div class="infos">      
+	        <h3 class="name col-xs-12 col-md-8"><%= product.name %></h3>
+	        <span class="price col-xs-6 col-md-4"><%= product.price %> €</span>
+	      </div>
+	      <div class="quantity">
+	      	<p>
+	      		<strong> Quantité : </strong>
+	      		<%= product.quantity %>
+	      	</p>
+	      </div>
+	    </div>
+	  </div>
+	<% end %>
+</section>
 
 <a href="#/lists">Retour</a>

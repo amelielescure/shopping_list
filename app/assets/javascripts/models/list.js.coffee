@@ -2,4 +2,4 @@ class ShoppingList.Models.List extends Backbone.Model
   paramRoot: 'list'
 
   defaults:
-  	name: ""
+  	nb_product: 0

@@ -1,16 +1,23 @@
-<a href="#lists/new" class="btn btn-success new-list">Créer une nouvelle liste</a>
+<a href="#/lists/new" class="btn btn-success new-list">Créer une nouvelle liste</a>
 <h1>Mes Listes de courses <small>(<%= @lists.length %>)</small></h1>
-<% if @lists.length: %>
-  <% for list in @lists: %>
-    <div class="list">
-      <div class="name">
-        <h4> <%= list.get("name") %> </h4>
-        <span>Nombre de produits</span>
-        <button class="destroy-list" data-list-id="<%= list.id %>">Delete</a>
+<section class="lists">
+  <% if @lists.length: %>
+    <% for list in @lists: %>
+      <div class="list ">
+        <table>
+          <tr>
+            <td class="name">
+              <h4> <a href="/#/lists/<%= list.id %>"><%= list.get("name") %></a> </h4>
+            </td>
+            <td class="delete">
+              <button class="destroy-list" data-list-id="<%= list.id %>">Supprimer</a>
+            </td>
+          </tr>
+        </table>
       </div>
-    </div>
-    </li>
+      </li>
+    <% end %>
+  <% else: %>
+    <p>Vous ne possedez pas encore de listes de courses</p>
   <% end %>
-<% else: %>
-  <p>Vous ne possedez pas encore de listes de courses</p>
-<% end %>
+</section>

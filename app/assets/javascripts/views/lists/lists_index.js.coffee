@@ -6,8 +6,8 @@ class ShoppingList.Views.ListsIndex extends Backbone.View
     "click .destroy-list": "deleteList"
 
   initialize: (option) ->
-    @product_list = options.product_list
     @collection.on "all", @render, this
+    @render()
 
   render: ->
     @$el.html(@template(lists: @collection.models))
