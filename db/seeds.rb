@@ -59,7 +59,7 @@ Product.create([
     :picture => "/products/fruits-rouges.jpg"  
   },
   {
-    :name => "Charal prêt à cuisiner pur boeuf",
+    :name => "Charal prêt à cuisiner",
     :price => 7.99,
     :picture => "/products/charal.jpg"  
   }
