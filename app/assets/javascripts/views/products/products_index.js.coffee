@@ -22,20 +22,22 @@ class ShoppingList.Views.ProductsIndex extends Backbone.View
     exist = false
     listId = $(e.target).parent().children("#select-list").children("option:selected").val()
     productId = $(e.target).data("product-id")
-    for product in @product_lists.models
-      if parseInt(product.get "product_id") == parseInt(productId) && parseInt(product.get "list_id") == parseInt(listId)
-        exist = product
-        quantity = parseInt(product.get "quantity") + 1
-    if exist == false
-      model = new ShoppingList.Models.ProductList({product_id: productId, list_id: listId, quantity: 1})
-      @product_lists.create model,
-        success: (productlist) =>
-          console.log("produit ajouté")
-    else
-      model = new ShoppingList.Models.ProductList({quantity: quantity})
-      exist.save model,
-        success: (productlist) =>
-          console.log ("produit modifié")
+    @product_lists.fetch
+      success: (collection, response) ->
+        for product in collection.models
+          if parseInt(product.get "product_id") == parseInt(productId) && parseInt(product.get "list_id") == parseInt(listId)
+            exist = product
+            quantity = parseInt(product.get "quantity") + 1
+        if exist == false
+          model = new ShoppingList.Models.ProductList({product_id: productId, list_id: listId, quantity: 1})
+          @product_lists.create model,
+            success: (productlist) =>
+              console.log("produit ajouté")
+        else
+          model = new ShoppingList.Models.ProductList({quantity: quantity})
+          exist.save model,
+            success: (productlist) =>
+              console.log ("produit modifié")
 
 
 
